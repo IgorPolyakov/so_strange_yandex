@@ -1,0 +1,3 @@
+class YanParser
+
+end
