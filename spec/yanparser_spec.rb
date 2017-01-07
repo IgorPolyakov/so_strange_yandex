@@ -5,4 +5,7 @@ RSpec.describe YanParser do
     qua = YanParser.new
     expect(qua.title).to eq "Яндекс"
   end
+  it 'Render yandex page' do
+    
+  end
 end
