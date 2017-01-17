@@ -5,10 +5,10 @@ require_relative 'yanparser'
 get '/' do
   @page = Nokogiri::HTML(open("https://yandex.com/"))
   # Thankyou strange guy 'huangw' from github
-  EasyTranslate.api_key = 'AIzaSyCv3vyT7t4xXiBLg_yKmY0NuaZq8I1YX8M'#'AIzaSyDPOAhODUCwTVebYNMzSa1HsoG-nad0U3w'
+  EasyTranslate.api_key = 'AIzaSyCv3vyT7t4xXiBLg_yKmY0NuaZq8I1YX8M'
 
   iter = @page.css('.heap__row').css('.link')
-  iter.each { |x| x.content = 'fuck'}#EasyTranslate.translate(x.text, :to => 'en') }
+  iter.each { |x| x.content = EasyTranslate.translate(x.text, :to => 'en') }
 
   search_button = @page.at_css('.button_theme_websearch')
   search_button.replace('<button id="myButton" class="button suggest2-form__button button_theme_websearch button_size_ws-head"> <span class="button__text">Хуй</span> </button>')
